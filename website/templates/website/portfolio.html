@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio</title>
+</head>
+<body>
+<h1>Welcome to the portfolio section</h1>
+<p>
+    this is text
+</p>
+<h2>Portfolio</h2>
+<ul>
+    {% for portfolio in portfolios %}
+        <li>
+            <a href="/hobbies/{{portfolio.id}}">
+                {{ portfolio.title }} : {{ portfolio.content }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

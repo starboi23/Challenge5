@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hobbies</title>
+</head>
+<body>
+<h1>Welcome to the hobby section</h1>
+<p>
+    this is text
+</p>
+<h2>Hobbies</h2>
+<ul>
+    {% for hobby in hobbies %}
+        <li>
+            <a href="/hobbies/{{hobby.id}}">
+                {{ hobby.title }} : {{ hobby.content }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
