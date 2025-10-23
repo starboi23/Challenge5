@@ -37,7 +37,7 @@ urlpatterns = [
     path('portfolios/<int:id>', port_detail),
 
     path('hobby_image_upload/', hobby_image_view, name='image_upload'),
-    path('portfolio_image_upload/', portfolio_image_view),m,
+    path('portfolio_image_upload/', portfolio_image_view),
     path('success/', success, name='success'),
 ]
 
