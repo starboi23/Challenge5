@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolios</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    <h2>Portfolios</h2>
+    <div class="container">
+  <ul class="nav bg-info">
+    <li class="nav-item">
+      <a class="nav-link link-light" href="/">HOME</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link link-light" href="/portfolios">PORTFOLIOS</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link link-light" href="/hobbies">HOBBIES</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link link-light" href="/contact">CONTACT</a>
+    </li>
+  </ul>
+  {% block content %}
+  {% endblock %}
+</div>
+    <ul>
+        {% for portfolio in portfolios %}
+            <li>
+                {{ portfolio.title }}
+                :
+                {{ portfolio.content }}
+                <a href="portfolios/{{portfolio.id}}">Inspect</a>
+
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

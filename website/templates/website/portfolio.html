@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Portfolio</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
 </head>
 <body>
 <h1>Welcome to the portfolio section</h1>
+<div class="container">
+  <ul class="nav bg-info">
+    <li class="nav-item">
+      <a class="nav-link link-light" href="/">HOME</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link link-light" href="/portfolios">PORTFOLIOS</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link link-light" href="/hobbies">HOBBIES</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link link-light" href="/contact">CONTACT</a>
+    </li>
+  </ul>
+  {% block content %}
+  {% endblock %}
+</div>
 <p>
     this is text
 </p>
@@ -13,7 +34,7 @@
 <ul>
     {% for portfolio in portfolios %}
         <li>
-            <a href="/hobbies/{{portfolio.id}}">
+            <a href="/portfolios/{{portfolio.id}}">
                 {{ portfolio.title }} : {{ portfolio.content }}
             </a>
         </li>

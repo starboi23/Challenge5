@@ -1,15 +1,51 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'website/style.css' %}">
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
 </head>
 <body>
 <h1>Welcome to my portfolio database</h1>
+<div class="container">
+  <ul class="nav bg-info">
+    <li class="nav-item">
+      <a class="nav-link link-light" href="/">HOME</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link link-light" href="/portfolios">PORTFOLIOS</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link link-light" href="/hobbies">HOBBIES</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link link-light" href="/contact">CONTACT</a>
+    </li>
+  </ul>
+  {% block content %}
+  {% endblock %}
+</div>
 
 <p>
-    I am a computer science major and this is hopefully my last semester before graduation.
+    I am a computer science major, and this is hopefully my last semester before graduation.
 </p>
+
+<p id="hiddenText">
+    This is hidden text I have hidden to make my page more interesting
+</p>
+
+<p id="hardToRead">
+    if you can read this congratulations, you're paying attention.
+    move your mouse above me.
+</p>
+
+
+
+
 
 
 </body>

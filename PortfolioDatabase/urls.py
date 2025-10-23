@@ -16,15 +16,30 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
+from PortfolioDatabase import settings
+from website import views
 from website.views import welcome, contact, hobby, portfolio
+from hobbies.views import detail, hobbies_list, hobby_image_view, success
+from portfolios.views import port_detail, portfolios_list, portfolio_image_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', welcome),
     path('contact', contact),
-    #path('hobbies/<int:id>', detail),
-    path('hobbies', hobby),
+    path('hobbies/<int:id>', detail),
+    path('hobbies', hobbies_list, name='hobbies'),
 
-    path('portfolios', portfolio)
+    path('portfolios', portfolios_list),
+    path('hobbies/<int:id>', detail),
+    path('portfolios/<int:id>', port_detail),
+
+    path('hobby_image_upload/', hobby_image_view, name='image_upload'),
+    path('portfolio_image_upload/', portfolio_image_view),m,
+    path('success/', success, name='success'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
